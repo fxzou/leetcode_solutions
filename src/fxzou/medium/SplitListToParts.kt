@@ -48,6 +48,21 @@ class SplitListToParts {
         }
         return count
     }
+
+    companion object {
+        @JvmStatic
+        fun main(args: Array<String>) {
+            val root = ListNode(1)
+            var nextNode: ListNode = root
+            for (i in 2..15) {
+                val next = ListNode(i)
+                nextNode.next = next
+                nextNode = next
+            }
+            println(root)
+            println(Arrays.toString(SplitListToParts().splitListToParts(root, 7)))
+        }
+    }
 }
 
 data class ListNode(var `val`: Int) {
@@ -55,21 +70,5 @@ data class ListNode(var `val`: Int) {
 
     override fun toString(): String {
         return `val`.toString() + if (next != null) "->" + next.toString() else ""
-    }
-}
-
-object Main {
-
-    @JvmStatic
-    fun main(args: Array<String>) {
-        val root = ListNode(1)
-        var nextNode: ListNode = root
-        for (i in 2..15) {
-            val next = ListNode(i)
-            nextNode.next = next
-            nextNode = next
-        }
-        println(root)
-        println(Arrays.toString(SplitListToParts().splitListToParts(root, 7)))
     }
 }
