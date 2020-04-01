@@ -1,3 +1,4 @@
-/leetcode_solution.iml
 /.idea/
 /out/
+/build/
+/.gradle/
