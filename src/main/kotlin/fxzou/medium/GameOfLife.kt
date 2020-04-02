@@ -6,7 +6,7 @@ package fxzou.medium
 
 class GameOfLife {
 
-    fun gameOfLife(board: Array<IntArray>): Unit {
+    fun gameOfLife(board: Array<IntArray>) {
         val aroundOffsets = arrayOf(
             intArrayOf(-1, -1), intArrayOf(-1, 0), intArrayOf(-1, 1),
             intArrayOf(0, -1), /*     center    */intArrayOf(0, 1),
