@@ -11,17 +11,17 @@ class StringToIntegerAtoi {
             return 0
         }
         var startParse = false
-        var symbol = 1
+        var sign = 1
         var result = 0
         loop@ for (c in str) {
             when {
                 c == ' ' && !startParse -> continue@loop
                 c == '-' && !startParse -> {
-                    symbol = -1
+                    sign = -1
                     startParse = true
                 }
                 c == '+' && !startParse -> {
-                    symbol = 1
+                    sign = 1
                     startParse = true
                 }
                 !c.isNumber() -> break@loop
@@ -30,16 +30,16 @@ class StringToIntegerAtoi {
                     result = c.toNumber()
                 }
                 else -> {
-                    val limit = if (symbol == 1) (Int.MAX_VALUE - c.toNumber()) / 10 else -((Int.MIN_VALUE + c.toNumber()) / 10)
+                    val limit = if (sign == 1) (Int.MAX_VALUE - c.toNumber()) / 10 else -((Int.MIN_VALUE + c.toNumber()) / 10)
                     if (result > limit) {
-                        return if (symbol == 1) Int.MAX_VALUE else Int.MIN_VALUE
+                        return if (sign == 1) Int.MAX_VALUE else Int.MIN_VALUE
                     }
                     result = result * 10 + c.toNumber()
                 }
             }
         }
 
-        return result * symbol
+        return result * sign
     }
 
     private fun Char.isNumber() = this.toInt() in '0'.toInt()..'9'.toInt()
