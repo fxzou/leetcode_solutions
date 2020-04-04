@@ -24,16 +24,20 @@ class StringMatch {
         if (strStartIndex >= str.size && pStartIndex >= p.size) {
             return true
         }
-        if (pStartIndex == p.size - 1 && p[pStartIndex] == '*') {
-            return true
-        }
         if (pStartIndex < p.size && p[pStartIndex] == '*') {
-            for (i in strStartIndex..str.size) {
-                val matchResult = matchHelper(i, pStartIndex + 1, str, p, cache)
-                if (matchResult) {
-                    return true
-                }
+            var lastAlmightyIndex = pStartIndex
+            while (true) {
+                if (lastAlmightyIndex + 1 >= p.size || p[lastAlmightyIndex + 1] != '*') break
+                lastAlmightyIndex++
             }
+            if (lastAlmightyIndex == p.size - 1) {
+                return true
+            }
+            if (
+                (strStartIndex..str.size).any {
+                    matchHelper(it, lastAlmightyIndex + 1, str, p, cache)
+                }
+            ) return true
             cache[strStartIndex][pStartIndex] = 1
             return false
         }
