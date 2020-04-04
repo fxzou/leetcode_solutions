@@ -5,7 +5,7 @@ package fxzou.medium
  */
 class IntegerToRoman {
 
-    fun intToRoman(num: Int): String {
+    companion object {
         val intMapToRoman = linkedMapOf(
             1000 to "M",
             900 to "CM",
@@ -21,6 +21,9 @@ class IntegerToRoman {
             4 to "IV",
             1 to "I"
         )
+    }
+
+    fun intToRoman(num: Int): String {
         var result = ""
         var remain = num
         while (remain > 0) {
