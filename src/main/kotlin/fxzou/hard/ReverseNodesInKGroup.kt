@@ -1,13 +1,11 @@
 package fxzou.hard
 
-class ReverseNodesInKGroup {
+import fxzou.common.ListNode
 
-    class ListNode(var `val`: Int) {
-        var next: ListNode? = null
-        override fun toString(): String {
-            return "${`val`}${if (next != null) "->${next}" else ""}"
-        }
-    }
+/**
+ * https://leetcode-cn.com/problems/reverse-nodes-in-k-group/
+ */
+class ReverseNodesInKGroup {
 
     fun reverseKGroup(head: ListNode?, k: Int): ListNode? {
         var resultHead: ListNode? = null

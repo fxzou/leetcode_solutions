@@ -1,5 +1,6 @@
 package fxzou.medium
 
+import fxzou.common.ListNode
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test
 
@@ -7,32 +8,21 @@ internal class AddTwoNumbers2Test {
 
     @Test
     fun `test add result`() {
-        var num1 = AddTwoNumbers2.ListNode(3)
-        num1 = AddTwoNumbers2.ListNode(4).also { it.next = num1 }
-        num1 = AddTwoNumbers2.ListNode(2).also { it.next = num1 }
-        num1 = AddTwoNumbers2.ListNode(7).also { it.next = num1 }
+        val num1 = ListNode.parse("7->2->4->3")
 
-        var num2 = AddTwoNumbers2.ListNode(4)
-        num2 = AddTwoNumbers2.ListNode(6).also { it.next = num2 }
-        num2 = AddTwoNumbers2.ListNode(5).also { it.next = num2 }
+        val num2 = ListNode.parse("5->6->4")
 
-        Assertions.assertThat(AddTwoNumbers2().addTwoNumbers(num1, num2).toString()).isEqualTo("7807")
+        Assertions.assertThat(AddTwoNumbers2().addTwoNumbers(num1, num2).toString()).isEqualTo("7->8->0->7")
     }
 
 
     @Test
     fun `test add result 2`() {
-        var num1 = AddTwoNumbers2.ListNode(3)
-        num1 = AddTwoNumbers2.ListNode(4).also { it.next = num1 }
-        num1 = AddTwoNumbers2.ListNode(2).also { it.next = num1 }
-        num1 = AddTwoNumbers2.ListNode(7).also { it.next = num1 }
+        val num1 = ListNode.parse("7->2->4->3")
 
-        var num2 = AddTwoNumbers2.ListNode(4)
-        num2 = AddTwoNumbers2.ListNode(6).also { it.next = num2 }
-        num2 = AddTwoNumbers2.ListNode(5).also { it.next = num2 }
-        num2 = AddTwoNumbers2.ListNode(5).also { it.next = num2 }
+        val num2 = ListNode.parse("5->5->6->4")
 
-        Assertions.assertThat(AddTwoNumbers2().addTwoNumbers(num1, num2).toString()).isEqualTo("12807")
+        Assertions.assertThat(AddTwoNumbers2().addTwoNumbers(num1, num2).toString()).isEqualTo("1->2->8->0->7")
     }
 
 }

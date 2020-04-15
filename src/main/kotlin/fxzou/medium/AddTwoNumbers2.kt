@@ -1,18 +1,12 @@
 package fxzou.medium
 
+import fxzou.common.ListNode
 import java.util.*
 
 /**
  * https://leetcode-cn.com/problems/add-two-numbers-ii/
  */
 class AddTwoNumbers2 {
-    class ListNode(var `val`: Int) {
-        var next: ListNode? = null
-        override fun toString(): String {
-            return "${`val`}${if (next != null) next.toString() else ""}"
-        }
-    }
-
     fun addTwoNumbers(l1: ListNode, l2: ListNode): ListNode {
         var resultHeader: ListNode? = null
         val stack1 = pushInStack(l1)

@@ -1,5 +1,6 @@
 package fxzou.hard
 
+import fxzou.common.ListNode
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
@@ -9,30 +10,15 @@ internal class ReverseNodesInKGroupTest {
     fun `test reverse`() {
         val group = ReverseNodesInKGroup()
 
-        var head = ReverseNodesInKGroup.ListNode(5)
-        head = ReverseNodesInKGroup.ListNode(4).also { it.next = head }
-        head = ReverseNodesInKGroup.ListNode(3).also { it.next = head }
-        head = ReverseNodesInKGroup.ListNode(2).also { it.next = head }
-        head = ReverseNodesInKGroup.ListNode(1).also { it.next = head }
+        var head = ListNode.parse("1->2->3->4->5")
 
         assertThat(group.reverseKGroup(head, 2).toString()).isEqualTo("2->1->4->3->5")
 
-        head = ReverseNodesInKGroup.ListNode(5)
-        head = ReverseNodesInKGroup.ListNode(4).also { it.next = head }
-        head = ReverseNodesInKGroup.ListNode(3).also { it.next = head }
-        head = ReverseNodesInKGroup.ListNode(2).also { it.next = head }
-        head = ReverseNodesInKGroup.ListNode(1).also { it.next = head }
+        head = ListNode.parse("1->2->3->4->5")
 
         assertThat(group.reverseKGroup(head, 3).toString()).isEqualTo("3->2->1->4->5")
 
-        head = ReverseNodesInKGroup.ListNode(8)
-        head = ReverseNodesInKGroup.ListNode(7).also { it.next = head }
-        head = ReverseNodesInKGroup.ListNode(6).also { it.next = head }
-        head = ReverseNodesInKGroup.ListNode(5).also { it.next = head }
-        head = ReverseNodesInKGroup.ListNode(4).also { it.next = head }
-        head = ReverseNodesInKGroup.ListNode(3).also { it.next = head }
-        head = ReverseNodesInKGroup.ListNode(2).also { it.next = head }
-        head = ReverseNodesInKGroup.ListNode(1).also { it.next = head }
+        head = ListNode.parse("1->2->3->4->5->6->7->8")
 
         assertThat(group.reverseKGroup(head, 3).toString()).isEqualTo("3->2->1->6->5->4->7->8")
 
