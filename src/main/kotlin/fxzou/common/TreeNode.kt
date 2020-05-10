@@ -2,7 +2,7 @@ package fxzou.common
 
 import java.util.*
 
-class TreeNode(var `val`: Int) {
+data class TreeNode(var `val`: Int) {
     var left: TreeNode? = null
     var right: TreeNode? = null
 

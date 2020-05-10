@@ -1,5 +1,8 @@
 package fxzou.medium
 
+/**
+ * https://leetcode-cn.com/problems/maximal-square/
+ */
 class MaximalSquare {
 
     fun maximalSquare(matrix: Array<CharArray>): Int {

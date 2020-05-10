@@ -1,5 +1,8 @@
 package fxzou.simple
 
+/**
+ * https://leetcode-cn.com/problems/sqrtx/
+ */
 class Sqrtx {
     fun mySqrt(x: Int): Int {
         if (x == 0) return 0
