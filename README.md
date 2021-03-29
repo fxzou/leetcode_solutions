@@ -1,2 +1,2 @@
-# Some leetcode solutions
-Some stupid code
+# leetcode solutions
+力扣主页: [zFxiang](https://leetcode-cn.com/u/zfxiang/)
